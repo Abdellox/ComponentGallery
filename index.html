@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Component Gallery — a collection of HTML/CSS components built by the community. Contribute yours!" />
+  <title>Component Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link id="theme-style" rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#" class="brand">Component<span>Gallery</span></a>
+      <div class="nav-links">
+        <a href="#gallery">Gallery</a>
+        <a href="#contribute">Contribute</a>
+        <a href="https://github.com/Abdellox/ComponentGallery" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+    <div class="hero container">
+      <h1>Component Gallery</h1>
+      <p>Beautiful HTML/CSS components contributed by developers like <strong>you</strong>.</p>
+      <p class="hero-sub">Pick an issue, build a component, open a PR. It takes 5–10 minutes.</p>
+      <div class="hero-actions">
+        <a href="#gallery" class="btn btn-primary">View Gallery</a>
+        <a href="#contribute" class="btn btn-outline">How to Contribute</a>
+      </div>
+      <div class="stats" id="stats">
+        <span><strong id="stat-components">0</strong> components</span>
+        <span><strong id="stat-authors">0</strong> contributors</span>
+        <span><strong id="stat-categories">0</strong> categories</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Filters ===== -->
+  <section class="filters container">
+    <div class="search-box">
+      <input type="search" id="search" placeholder="Search components... (e.g. button, card)" autocomplete="off" />
+    </div>
+    <div class="filter-chips" id="filter-chips"></div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+  <main class="container" id="gallery">
+    <h2 class="section-title">The Gallery <span id="gallery-count"></span></h2>
+    <div class="gallery-grid" id="gallery-grid"></div>
+
+    <div id="empty-state" class="empty-state" hidden>
+      <p>😕 No components found.</p>
+      <p>Try a different search, or be the first to contribute one!</p>
+    </div>
+
+    <p id="gallery-status" class="gallery-status" aria-live="polite">Loading components...</p>
+  </main>
+
+  <!-- ===== Contribute ===== -->
+  <section class="contribute container" id="contribute">
+    <h2 class="section-title">Add Yours 🚀</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <h3>Fork the repo</h3>
+        <p>Fork <code>Abdellox/ComponentGallery</code> on GitHub.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <h3>Create a component</h3>
+        <p>Add a self-contained <code>&lt;your-component&gt;.html</code> file in <code>components/</code>.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <h3>Register it</h3>
+        <p>Add one entry to <code>components.json</code> with your name.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">4</span>
+        <h3>Open a PR</h3>
+        <p>Submit your pull request. That’s it — you're in the gallery!</p>
+      </div>
+    </div>
+    <div class="contribute-cta">
+      <a href="https://github.com/Abdellox/ComponentGallery/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="btn btn-primary">Read Contribution Guide</a>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Built with 💖 by <a href="https://github.com/Abdellox" target="_blank" rel="noopener">Abdellox</a> and the community.</p>
+      <p class="footer-note">Made for beginners. Your 5-minute contribution helped someone learn.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

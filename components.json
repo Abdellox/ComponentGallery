@@ -1,0 +1,42 @@
+[
+  {
+    "file": "components/button-glow.html",
+    "name": "Glow Button",
+    "category": "button",
+    "author": "Abdellox",
+    "github": "https://github.com/Abdellox",
+    "description": "A vibrant button with a glowing hover effect."
+  },
+  {
+    "file": "components/card-profile.html",
+    "name": "Profile Card",
+    "category": "card",
+    "author": "Abdellox",
+    "github": "https://github.com/Abdellox",
+    "description": "A clean profile card with avatar and stats."
+  },
+  {
+    "file": "components/navbar-glassmorphism.html",
+    "name": "Glassmorphism Navbar",
+    "category": "navbar",
+    "author": "Abdellox",
+    "github": "https://github.com/Abdellox",
+    "description": "A modern frosted-glass navigation bar."
+  },
+  {
+    "file": "components/modal-animated.html",
+    "name": "Animated Modal",
+    "category": "modal",
+    "author": "Abdellox",
+    "github": "https://github.com/Abdellox",
+    "description": "A modal dialog with a smooth scale-in animation."
+  },
+  {
+    "file": "components/footer-simple.html",
+    "name": "Simple Footer",
+    "category": "footer",
+    "author": "Abdellox",
+    "github": "https://github.com/Abdellox",
+    "description": "A minimal footer with links and social icons."
+  }
+]
