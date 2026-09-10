@@ -1,0 +1,68 @@
+name: Welcome first-time contributors
+
+on:
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check if PR author is new to the repo
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const author = context.payload.pull_request.user.login;
+
+            // Contributions = any PR authored by this user (merged or not).
+            const { data: prs } = await github.rest.issues.listForRepo({
+              owner, repo,
+              creator: author,
+              state: "all",
+              per_page: 100
+            });
+
+            const isFirst = prs.filter((p) => p.pull_request).length <= 1;
+            console.log(`Author: ${author}, PRs found: ${prs.filter(p=>p.pull_request).length}, isFirst: ${isFirst}`);
+            core.setOutput("is_first", isFirst);
+            core.setOutput("author", author);
+
+      - name: Post welcome comment
+        if: steps.check.outputs.is_first == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const author = "${{ steps.check.outputs.author }}";
+            const body = [
+              `🎉 **Welcome to Component Gallery, @${author}!**`,
+              ``,
+              `This looks like your **first pull request** here — thank you so much for contributing! 💙`,
+              ``,
+              `A few quick notes:`,
+              `- A maintainer will review your PR shortly.`,
+              `- If your PR doesn't fully pass the checklist, don't worry — we'll help you fix it together.`,
+              `- Feedback here is always kind and meant to help you learn.`,
+              ``,
+              `**You're officially part of this project now. Open source is better because of you!** 🚀`
+            ].join("\n");
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ["hacktoberfest"]
+            });
