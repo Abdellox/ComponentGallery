@@ -38,5 +38,13 @@
     "author": "Abdellox",
     "github": "https://github.com/Abdellox",
     "description": "A minimal footer with links and social icons."
-  }
+  },
+  {
+  "file": "components/button-gradient.html",
+  "name": "Gradient Button",
+  "category": "button",
+  "author": "dhanushyavarathan345",
+  "github": "https://github.com/dhanushyavarathan345",
+  "description": "A vibrant gradient button with a smooth hover effect."
+}
 ]
