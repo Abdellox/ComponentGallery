@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="404 — Page not found | Component Gallery" />
+  <title>404 — Component Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link id="theme-style" rel="stylesheet" href="style.css" />
+  <style>
+    .notfound-wrap{
+      margin-top: -2.6rem;
+      position:relative;
+      z-index:2;
+    }
+    .notfound-card{
+      background:var(--card-bg);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:3rem 2rem;
+      text-align:center;
+      max-width:720px;
+      margin:0 auto;
+    }
+    .notfound-badge{
+      display:inline-block;
+      background:var(--primary-soft);
+      color:var(--primary);
+      font-size:.72rem;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      padding:.3rem .8rem;
+      border-radius:999px;
+    }
+    .notfound-card h1{
+      font-size:clamp(3.5rem,12vw,6rem);
+      line-height:1;
+      font-weight:800;
+      letter-spacing:-.05em;
+      margin:1rem 0 .4rem;
+      background: var(--header-gradient);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .notfound-card h2{
+      font-size:1.4rem;
+      font-weight:700;
+      letter-spacing:-.02em;
+    }
+    .notfound-card p{
+      color:var(--text-muted);
+      max-width:440px;
+      margin:.6rem auto 0;
+      font-size:.95rem;
+    }
+    .notfound-actions{
+      margin-top:1.8rem;
+      display:flex;
+      gap:.8rem;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .notfound-actions .btn-primary{
+      background:var(--primary);
+      color:#fff;
+    }
+    .notfound-actions .btn-primary:hover{
+      background:var(--primary-strong);
+    }
+    .notfound-code{
+      margin-top:2rem;
+      font-size:.8rem;
+      color:var(--text-muted);
+      background:var(--bg-alt);
+      border:1px dashed var(--border);
+      border-radius:10px;
+      padding:.7rem 1rem;
+      display:inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="/" class="brand">Component<span>Gallery</span></a>
+      <div class="nav-links">
+        <a href="/#gallery">Gallery</a>
+        <a href="/#contribute">Contribute</a>
+        <a href="https://github.com/Abdellox/ComponentGallery" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+    <div class="hero container">
+      <h1>Oops, lost?</h1>
+      <p>This page isn't in the gallery.</p>
+      <p class="hero-sub">Let's get you back to beautiful components.</p>
+    </div>
+  </header>
+
+  <main class="container notfound-wrap">
+    <div class="notfound-card">
+      <h1>404</h1>
+      <h2>This component doesn't exist yet.</h2>
+      <p>You searched for a page that isn't built. The good news? You could be the one to build it and add it to the gallery.</p>
+      
+      <div class="notfound-actions">
+        <a href="/" class="btn btn-primary">← Back to Gallery</a>
+        <a href="/#contribute" class="btn btn-ghost btn-sm" style="padding:.75rem 1.5rem; font-size:.95rem; border-radius:12px;">How to Contribute</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Built with 💖 by <a href="https://github.com/Abdellox" target="_blank" rel="noopener">Abdellox</a> and the community.</p>
+      <p class="footer-note">Made for beginners. Your 5-minute contribution helped someone learn.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
