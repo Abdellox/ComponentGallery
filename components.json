@@ -46,5 +46,13 @@
     "author": "dhanushyavarathan345",
     "github": "https://github.com/dhanushyavarathan345",
     "description": "A vibrant gradient button with a smooth hover effect."
-  }
+  },
+  {
+    "file": "components/card-pricing.html",
+    "name": "Pricing Card",
+    "category": "card",
+    "author": "pawanhirumina",
+    "github": "https://github.com/pawanhirumina",
+    "description": "Modern pricing card with popular badge, price, feature list and CTA."
+  },
 ]
