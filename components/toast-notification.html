@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toast Notification</title>
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: system-ui, sans-serif;
+    background: #f8fafc;
+  }
+
+  .btn {
+    border: 0;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .success  { background: #10b981; }
+  .error  { background: #ef4444; }
+  .info  { background: #3b82f6; }
+  .warning  { background: #f59e0b; }
+
+
+  .toast-stack {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+  }
+
+  .toast {
+    display: flex;
+    gap: 12px;
+    min-width: 360px;
+    max-width: 360px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateX(20px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+
+  .toast.success .toast-dot { background: #10b981; }
+  .toast.error .toast-dot { background: #ef4444; }
+  .toast.info .toast-dot { background: #3b82f6; }
+  .toast.warning .toast-dot { background: #f59e0b; }
+
+  .toast-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 5px;
+    background: #0f172a;
+  }
+  .toast-msg {
+    font-size: 14px;
+    flex: 1;
+  }
+  .toast-close {
+    border: 0;
+    background: #f1f5f9;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+      <div class="btn-list">
+       <button class="btn success" id="showSuccess">Show Success</button>
+       <button class="btn error" id="showError">Show Error</button>
+       <button class="btn info" id="showInfo">Show Info</button>
+       <button class="btn warning" id="showWarning">Show Warning</button>
+      </div>
+  <div class="toast-stack" id="stack"></div>
+
+<script>
+
+
+  function showToast(message, state = 'info') {
+    const stack = document.getElementById('stack');
+
+    const el = document.createElement('div');
+    el.className = `toast ${state}`;     
+    el.innerHTML = `
+      <div class="toast-dot"></div>
+      <div class="toast-msg">${message}</div>
+      <button class="toast-close">✕</button>
+      <div style="position:absolute; bottom:0; left:0; height:2px; background:currentColor; width:100%; opacity:0.2"></div>
+    `;
+
+    const close = () => {
+      el.classList.remove('show');
+      setTimeout(() => el.remove(), 300);
+    };
+    el.querySelector('.toast-close').onclick = close;
+
+    stack.appendChild(el);
+    requestAnimationFrame(() => el.classList.add('show'));
+
+    setTimeout(close, 3000);
+  }
+
+  document.getElementById('showSuccess').addEventListener('click', () => {
+    showToast('Changes saved successfully!', 'success');
+  });
+
+  document.getElementById('showError').addEventListener('click', () => {
+    showToast('Failed to save. Please try again.', 'error');
+  });
+
+  document.getElementById('showInfo').addEventListener('click', () => {
+    showToast('New update available. Refresh to get latest.', 'info');
+  });
+
+  document.getElementById('showWarning').addEventListener('click', () => {
+    showToast('Your session will expire in 2 minutes.', 'warning');
+  });
+
+</script>
+</body>
+</html>
